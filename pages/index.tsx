@@ -1,9 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
-import type { ReactElement } from 'react'
-const inter = Inter({ subsets: ['latin'] })
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "../styles/Home.module.css";
+import type { ReactElement } from "react";
+const inter = Inter({ subsets: ["latin"] });
+import GlobalLayout from "../components/layouts/GlobalLayout";
 
 export default function Home() {
   return (
@@ -15,8 +16,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        Bắt đầu tại đây chứ nhể
+        <h1 className="text-3xl font-bold underline">Hello world!</h1>
       </main>
     </>
-  )
+  );
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <GlobalLayout>{page}</GlobalLayout>;
+};
