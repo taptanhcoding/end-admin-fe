@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Logo() {
+export default function Logo({...props}) {
   return (
-    <div>Logo</div>
+    <div {...props}>Logo</div>
   )
 }
