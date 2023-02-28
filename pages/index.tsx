@@ -68,6 +68,7 @@ export default function Home() {
               coverImageUrl: "/",
             }}
           />
+          <p>Thêm dòng này</p>
         </div>
       </main>
     </>
