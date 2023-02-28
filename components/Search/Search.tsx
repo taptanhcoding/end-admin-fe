@@ -30,9 +30,6 @@ export default function Search({ ...props }) {
     try {
       const rsSearch = await axiosClient.get(`/api/products?q=${value}`)
       setSearchRs(rsSearch.data)
-      if(rsSearch.data.length == 0) {
-        setShowRs(false)
-      }
     } catch (error) {
       console.log("Lỗi tìm kiếm : ",error);
     }
@@ -46,15 +43,15 @@ export default function Search({ ...props }) {
       onClickOutside={() => setShowRs(false)}
       render={(attrs) => (
         <div className="box" tabIndex={-1} {...attrs}>
-          <div className={cx("flex py-4 md:w-144 sm:w-80 bg-white border border-low-gray ")}>
-            {searchRs.map((data:{name: string,slug: string,price:number,coverImageUrl:string}):ReactElement => {
+          <div className={cx("flex py-2 md:w-144 sm:w-80 bg-white border border-low-gray ")}>
+            {searchRs.length > 0 ? searchRs.map((data:{name: string,slug: string,price:number,coverImageUrl:string}):ReactElement => {
               return <ProductIteam key={data.slug} data={{
                 name: data.name,
                 slug: data.slug,
                 price: data.price,
                 coverImageUrl: `${process.env.NEXT_PUBLIC_API_URL}/${data.coverImageUrl}`
               }} />
-            })}
+            }) : "Không tìm thấy sản phẩm"}
             
           </div>
         </div>
@@ -68,15 +65,18 @@ export default function Search({ ...props }) {
              setSearchValue(e.target.value)
               handleSearch(e.target.value)
             }}
-          className={cx("flex-1 outline-0 bg-white text-2xl")}
+          className={cx("flex-1 outline-0 bg-white text-xl italic mr-4")}
           onFocus={(e:any)=> {
             if(e.target.value !== '') {
               setShowRs(true)
             }
           }}
+          placeholder='Tìm kiếm sản phẩm trên smart device ?'
         />
         <button>
-          <HiOutlineSearch width={'30px'} height={'30px'}/>
+          <HiOutlineSearch style={{
+            fontSize: '1.8rem'
+          }}/>
         </button>
       </div>
     </Tippy>

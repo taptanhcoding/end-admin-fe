@@ -1,0 +1,10 @@
+.wrapper {
+  & .wrap-content_name {
+    width: 90%;
+    min-height: 49px;
+  }
+}
+
+.wrapper:hover .wrap-content_name {
+  color: blue;
+}

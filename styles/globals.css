@@ -44,6 +44,14 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+.limit-text {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
