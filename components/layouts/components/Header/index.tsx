@@ -10,7 +10,7 @@ const cx = classNames.bind(styles)
 export default function Header() {
   return (
     <div className={cx('grid grid-flow-col auto-cols-auto bg-main')}>
-    <Logo className={cx('h-[60px] p-[7px]')}/>
+    <Logo className={cx('h-[60px] p-[8px]')}/>
     <Search/>
     <div >
       <HeaderItem icon={<BsTelephoneFill/>} content="bán hàng"/>
