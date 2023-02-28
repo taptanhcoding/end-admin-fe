@@ -17,59 +17,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <h1 className="text-3xl font-bold underline">Hello world!2</h1>
-        <div className="flex flex-row">
-          <ProductCard
-            data={{
-              _id: "ikdgfakjf",
-              name: "Tên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩmTên Sản phẩm",
-              code: "Sp0001",
-              price: 120000,
-              discount: 12,
-              priceDiscount: 110000,
-              slug: "string",
-              coverImageUrl: "uploads/products/63f6d8b9f8a2dee91af79bb8/a57_1.png",
-            }}
-          />
-          <ProductCard
-            data={{
-              _id: "ikdgfakjf",
-              name: "Tên Sản phẩm",
-              code: "Sp0001",
-              price: 120000,
-              discount: 12,
-              priceDiscount: 110000,
-              slug: "string",
-              coverImageUrl: "/",
-            }}
-          />
-          <ProductCard
-            data={{
-              _id: "ikdgfakjf",
-              name: "Tên Sản phẩm",
-              code: "Sp0001",
-              price: 120000,
-              discount: 12,
-              priceDiscount: 110000,
-              slug: "string",
-              coverImageUrl: "/",
-            }}
-          />
-          <ProductCard
-            data={{
-              _id: "ikdgfakjf",
-              name: "Tên Sản phẩm",
-              code: "Sp0001",
-              price: 120000,
-              discount: 0,
-              priceDiscount: 110000,
-              slug: "string",
-              coverImageUrl: "/",
-            }}
-          />
-        </div>
-      </main>
     </>
   );
 }
