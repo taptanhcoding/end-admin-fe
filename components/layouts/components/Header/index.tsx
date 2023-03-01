@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from '../../../Logo/Logo'
 import Search from '../../../Search/Search'
-import HeaderItem from '../../../HeaderItem/HeaderItem'
+import HeaderItem from './components/HeaderItem/HeaderItem'
 import {BsTelephoneFill,BsCartDash} from 'react-icons/bs'
 import {AiOutlineCheckCircle} from 'react-icons/ai'
 import classNames from 'classnames/bind'
@@ -17,9 +17,15 @@ export default function Header() {
     <Logo className={cx('h-[60px] p-[7px] ')} logo={logo1} name={'Smart device'}/>
     <Search/>
     <div  className={cx('flex items-center')}>
-      <HeaderItem icon={<BsTelephoneFill/>} content="Bán hàng"/>
-      <HeaderItem icon={<AiOutlineCheckCircle/>} content="Bảo hành"/>
-      <HeaderItem icon={<BsCartDash/>} content="Giỏ hàng"/>
+      <HeaderItem link={''} type='about' quanity={null} icon={<BsTelephoneFill width={'20px'} height={'20px'}/>} content={<>
+        <p className={cx('text-[12px]')}>Bán hàng</p>
+        <p className={cx('text-[16px] leading-none')}>Online</p>
+      </>}/>
+      <HeaderItem link={''} type='about' quanity={null} icon={<AiOutlineCheckCircle/>} content={<>
+        <p className={cx('text-[12px]')}>Tra cứu</p>
+        <p className={cx('text-[16px] leading-none')}>Bảo hành</p>
+      </>}/>
+      <HeaderItem link={'/'} type='link' quanity={0} icon={<BsCartDash/>} content="Giỏ hàng"/>
     </div>
     </div>
   )
