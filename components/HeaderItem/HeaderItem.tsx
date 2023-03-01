@@ -4,7 +4,8 @@ import styles from '../layouts/components/Header/Header.module.scss'
 
 interface Props {
     icon: JSX.Element ,
-    content: JSX.Element | string
+    content: JSX.Element | string,
+    type:string
 }
 const cx = classNames.bind(styles)
 export default function HeaderItem({icon,content}:Props) {
