@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
+
 interface propLoader {
   src: string,
   width: string | number,
