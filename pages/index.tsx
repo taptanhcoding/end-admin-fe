@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 import GlobalLayout from "../components/layouts/GlobalLayout";
 import ImageC from "../components/Image";
 import ProductCard from "../components/ProductCard";
+import Products from "./danh-sach/[slugCategory]";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        Test lại
+        <Products/>
       </main>
     </>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import styles from '../layouts/components/Header/Header.module.scss'
+import styles from '../../Header/Header.module.scss'
 
 interface Props {
     icon: JSX.Element ,
