@@ -57,7 +57,7 @@ export default function Search({ ...props }) {
         </div>
       )}
     >
-      <div className={cx("flex rounded md:w-144 sm:w-80  h-[40px] mt-[10px] bg-white p-4")}>
+      <div className={cx("flex rounded md:w-144 sm:w-80  h-[40px] mt-[23px] bg-white p-4")}>
         <DebounceInput
           minLength={2}
           debounceTimeout={300}
