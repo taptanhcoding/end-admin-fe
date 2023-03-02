@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 import GlobalLayout from "../components/layouts/GlobalLayout";
 import ImageC from "../components/Image";
 import ProductCard from "../components/ProductCard";
-import Products from "./danh-sach/[slugCategory]";
+import Navigate from "../components/layouts/components/NavigateMenu/Navigate";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Products/>
+        <Navigate type="1"/>
       </main>
     </>
   );
