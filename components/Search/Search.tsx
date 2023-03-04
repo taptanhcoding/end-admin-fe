@@ -57,7 +57,7 @@ export default function Search({ ...props }) {
         </div>
       )}
     >
-      <div className={cx("flex rounded md:w-144 sm:w-80  bg-white p-4")}>
+      <div className={cx("flex rounded md:w-144 sm:w-80  h-[40px] mt-[23px] bg-white p-4")}>
         <DebounceInput
           minLength={2}
           debounceTimeout={300}
@@ -65,7 +65,7 @@ export default function Search({ ...props }) {
              setSearchValue(e.target.value)
               handleSearch(e.target.value)
             }}
-          className={cx("flex-1 outline-0 bg-white text-xl italic mr-4")}
+          className={cx("flex-1 outline-0 bg-white text-[13px] italic mr-4")}
           onFocus={(e:any)=> {
             if(e.target.value !== '') {
               setShowRs(true)
