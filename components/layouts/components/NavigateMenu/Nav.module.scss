@@ -1,0 +1,27 @@
+.dropdown {
+    font-size: 15px ;
+    text-align: center;
+    background-color: #ff0000;
+    width:212px;
+    padding: 10px 0px 0px 0px; 
+    margin: 10px 0px 0px 10px;
+    color:white;
+    display: block;
+    z-index: 1;
+  }
+  .dropdowncontent2{
+    display: none;
+    z-index: 2;
+    color: black;
+  }
+  .dropdowncontent1{
+    display: block;
+    z-index: 2;
+    color: black;
+    margin: 10px 0px 0px 10px;
+  }
+  .dropdowncontent:hover{
+    background-color: #ff0000;
+  
+  }
+  .dropdown:hover .dropdowncontent1 ,.dropdowncontent2 {display: block;}
