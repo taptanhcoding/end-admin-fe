@@ -29,8 +29,8 @@ export default function ProductCard({ data }: Props) {
       <div className={cx("wrap-img", "relative overflow-hidden")}>
         <ImageC
           className={cx("object-contain hover:scale-125 ease-in duration-300 w-full")}
-          src={`${process.env.NEXT_PUBLIC_API_URL}/${data.coverImageUrl}`}
-          // src={data.coverImageUrl}
+          // src={`${process.env.NEXT_PUBLIC_API_URL}/${data.coverImageUrl}`}
+          src={data.coverImageUrl}
         />
         <p
           className={cx(
