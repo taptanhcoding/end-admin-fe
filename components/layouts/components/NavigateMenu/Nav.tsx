@@ -15,53 +15,8 @@ import { AiFillAndroid } from "react-icons/ai";
 interface MenuProps {
   type:string,
 }
-const items = [
-  {
-    slug: "/category1",
-    icon: <BsHeadphones/>,
-    name: "Tai nghe",
-  },
-  {
-    slug: "/category2",
-    icon: <GiBatteryPack/>,
-    name: "Pin dự phòng ",
-  },
-  {
-    slug: "/category3",
-    icon: <GiCharging/>,
-    name: "Củ sạc,cáp",
-  },
-  {
-    slug: "/category4",
-    icon: <MdOutlineSurroundSound/>,
-    name: "Âm thanh",
-  },
-  {
-    slug: "/category5",
-    icon: <BsPhone/>,
-    name: "Ốp lưng,cường lực",
-  },
-  {
-    slug: "/category6",
-    icon: <BsWatch/>,
-    name: "Thiết bị đeo",
-  },
-  {
-    slug: "/category7",
-    icon: <BsApple/>,
-    name: "Bộ sạc nhanh Iphone",
-  },
-  {
-    slug: "/category8",
-    icon: <AiFillAndroid/>,
-    name: "Bộ sạc nhanh android",
-  },
-  {
-    slug: "/category9",
-    icon: <BsPhone/>,
-    name: "Phụ kiện thông minh",
-  },
-];
+
+
 const cx = classNames.bind(styles)
 function NavigateMenu({icon,name,}:any) {
   return (
@@ -76,10 +31,57 @@ function NavigateMenu({icon,name,}:any) {
   );
 }
 export default function  Menu({ type }:MenuProps){
+  const category = [
+    {
+      slug: "danh-sach/Tai-nghe",
+      icon: <BsHeadphones/>,
+      name: "Tai nghe",
+    },
+    {
+      slug: "danh-sach/Pin-duPhong-cap",
+      icon: <GiBatteryPack/>,
+      name: "Pin dự phòng ",
+    },
+    {
+      slug: "danh-sach/Cu-sac-cap",
+      icon: <GiCharging/>,
+      name: "Củ sạc,cáp",
+    },
+    {
+      slug: "danh-sach/Am-thanh",
+      icon: <MdOutlineSurroundSound/>,
+      name: "Âm thanh",
+    },
+    {
+      slug: "danh-sach/Oplung-cuongluc",
+      icon: <BsPhone/>,
+      name: "Ốp lưng,cường lực",
+    },
+    {
+      slug: "danh-sach/Tb-deo",
+      icon: <BsWatch/>,
+      name: "Thiết bị đeo",
+    },
+    {
+      slug: "danh-sach/Bo-sac-nhanh-IP",
+      icon: <BsApple/>,
+      name: "Bộ sạc nhanh Iphone",
+    },
+    {
+      slug: "danh-sach/Bo-sac-nhanh-Adroid",
+      icon: <AiFillAndroid/>,
+      name: "Bộ sạc nhanh android",
+    },
+    {
+      slug: "danh-sach/Phu-kien",
+      icon: <BsPhone/>,
+      name: "Phụ kiện thông minh",
+    },
+  ];
   switch (type) {
     case '1':
       return <div className={styles.dropdowncontent1} >
-      {items.map((item) => (
+      {category.map((item) => (
         <Link key={item.name} href={item.slug}  >
           <NavigateMenu key={item.name} icon={item.icon} name={item.name}/>
         </Link>
@@ -89,7 +91,7 @@ export default function  Menu({ type }:MenuProps){
     case '2':
       return <>
       <button className={styles.dropdown}>DANH SÁCH SẢN PHẨM
-      {items.map((item) => (
+      {category.map((item) => (
         <Link key={item.name} href={item.slug} className={styles.dropdowncontent2}>
           <NavigateMenu key={item.name} icon={item.icon} name={item.name}/>
         </Link>

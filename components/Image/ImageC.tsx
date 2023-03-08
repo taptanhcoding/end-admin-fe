@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import logo1 from './logo1.png'
 
 
 interface propLoader {
@@ -12,9 +13,9 @@ export default function ImageC({ ...props }) {
   let { src } = props;
   const [linkImg, setLinkImg] = useState(src);
   return (
-    <Image
+    <Image 
       onError={() => {
-        setLinkImg("/error.png");
+        setLinkImg("");
       }}
       width={100}
       height={100}

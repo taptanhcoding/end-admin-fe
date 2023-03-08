@@ -4,7 +4,7 @@ import Menu from "./Nav";
 export default function NavigateMenu() {
   return (
     <div>
-      <Menu type="3"/>
+      <Menu type="2"/>
     </div>
   )
 }

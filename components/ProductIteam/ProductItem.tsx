@@ -10,7 +10,7 @@ type Props = {
         coverImageUrl : string,
         name: string,
         slug: string,
-        price: number
+        price: number,
     }
 }
 const cx= classNames.bind(styles)
