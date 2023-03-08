@@ -110,3 +110,18 @@ a {
     color-scheme: light;
   }
 }
+
+.container {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1180px) {
+  .container {
+    padding-left: 4px;
+    padding-right: 4px;
+    box-sizing: border-box;
+  }
+}
+  

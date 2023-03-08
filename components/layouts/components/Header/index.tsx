@@ -13,7 +13,7 @@ const cx = classNames.bind(styles)
 const logo1="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/329030659_1417820318956584_1663568495640829760_n.png?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=uv-zJll1gCoAX_bx4Gu&tn=DoiO9q6o7GFj9poR&_nc_ht=scontent.fhan14-2.fna&oh=03_AdSK3KWYegb7b-YGv04m2_dyjptVYPTBe9SJnvy-FJgMiQ&oe=64255146";
 export default function Header() {
   return (
-    <div className={cx('grid grid-flow-col auto-cols-auto bg-main')}>
+    <div className={cx('grid grid-flow-col auto-cols-auto bg-main sticky top-0 z-[9999]')}>
     <Logo className={cx('h-[60px] p-[7px] ')} logo={logo1} name={'Smart device'}/>
     <Search/>
     <div  className={cx('flex items-center')}>

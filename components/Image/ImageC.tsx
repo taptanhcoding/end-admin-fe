@@ -11,15 +11,18 @@ interface propLoader {
 export default function ImageC({ ...props }) {
   let { src } = props;
   const [linkImg, setLinkImg] = useState(src);
+  
   return (
     <Image
       onError={() => {
-        setLinkImg("/error.png");
+        setLinkImg("/load.gif");
       }}
       width={100}
       height={100}
       alt=''
-      loader={() => linkImg}
+      loader={(e) => {
+        return e.src
+      }}
       loading="lazy"
       {...props}
       src={linkImg}
