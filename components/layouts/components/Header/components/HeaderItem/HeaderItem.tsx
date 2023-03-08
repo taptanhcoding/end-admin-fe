@@ -69,7 +69,7 @@ export default function HeaderItem({
       </div>
       <div
         className={cx(
-          "text-white lg:text-[15px]  md:text-[8px] ml-[7px] mt-[3px]"
+          "text-white md:text-[15px] md:hidden lg:block ml-[7px] mt-[3px]"
         )}
       >
         {content}

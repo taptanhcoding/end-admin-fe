@@ -3,6 +3,7 @@ import Logo from '../../../Logo/Logo'
 import Search from '../../../Search/Search'
 import HeaderItem from './components/HeaderItem/HeaderItem'
 import {BsTelephoneFill,BsCartDash} from 'react-icons/bs'
+import {BiUserCircle} from 'react-icons/bi'
 import {AiOutlineCheckCircle} from 'react-icons/ai'
 import classNames from 'classnames/bind'
 import styles from './Header.module.scss'
@@ -25,7 +26,8 @@ export default function Header() {
         <p className={cx('text-[12px]')}>Tra cứu</p>
         <p className={cx('text-[16px] leading-none')}>Bảo hành</p>
       </>}/>
-      <HeaderItem link={'/'} type='link' quanity={0} icon={<BsCartDash/>} content="Giỏ hàng"/>
+      <HeaderItem link={'/'} type='link' quanity={0} icon={<BsCartDash/>} content={<p className={cx('text-[16px] leading-none')}>Giỏ hàng</p>}/>
+      <HeaderItem link={'/'} type='link' quanity={null} icon={<BiUserCircle/>} content={<p className={cx('text-[16px] leading-none')}>Tài khoản</p>}/>
     </div>
     </div>
   )
