@@ -2,7 +2,7 @@ import currencyFormatter from 'currency-formatter'
 
 
 function money(data:number):string {
-return currencyFormatter.format(1000000, {
+return currencyFormatter.format(data, {
     symbol: '₫',
     decimal: ',',
     thousand: '.',

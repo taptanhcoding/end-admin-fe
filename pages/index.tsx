@@ -37,6 +37,7 @@ function Home({ data }: propsData) {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
+    slidesPerRow: 1,
     responsive: [
       {
         breakpoint: 1024,
@@ -174,6 +175,11 @@ export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
       data: spAt.data,
     };
     data.push(am_thanh);
+    console.log('pin',pin);
+    console.log('sp_ban_chay',sp_ban_chay);
+    console.log('tai_nghe',tai_nghe);
+    console.log('cu_sac',cu_sac);
+    console.log('am_thanh',am_thanh);
   } catch (error) {}
 
   return { props: { data } };

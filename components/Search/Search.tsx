@@ -28,8 +28,10 @@ export default function Search({ ...props }) {
   },[searchValue])
   async function handleSearch(value:string) {
     try {
-      const rsSearch = await axiosClient.get(`/api/products?q=${value}`)
-      setSearchRs(rsSearch.data)
+      if(value) {
+        const rsSearch = await axiosClient.get(`/api/products?q=${value}`)
+        setSearchRs(rsSearch.data)
+      }
     } catch (error) {
       console.log("Lỗi tìm kiếm : ",error);
     }
@@ -41,15 +43,16 @@ export default function Search({ ...props }) {
       delay={100}
       visible={isShowRs}
       onClickOutside={() => setShowRs(false)}
+      placement='bottom'
       render={(attrs) => (
         <div className="box" tabIndex={-1} {...attrs}>
-          <div className={cx("flex py-2 md:w-144 sm:w-80 bg-white border border-low-gray ")}>
-            {searchRs.length > 0 ? searchRs.map((data:{name: string,slug: string,price:number,coverImageUrl:string}):ReactElement => {
+          <div className={cx("wrap-result","flex flex-col py-2 md:w-144 sm:w-80 bg-white border border-low-gray max-h-[300px] overflow-y-scroll")}>
+            {searchRs.length > 0 ? searchRs.map((data:{name: string,slug: string,price:number,coverImgUrl:string}):ReactElement => {
               return <ProductIteam key={data.slug} data={{
                 name: data.name,
                 slug: data.slug,
                 price: data.price,
-                coverImageUrl: `${process.env.NEXT_PUBLIC_API_URL}/${data.coverImageUrl}`
+                coverImgUrl: `${process.env.NEXT_PUBLIC_API_URL}/${data.coverImgUrl}`
               }} />
             }) : "Không tìm thấy sản phẩm"}
             

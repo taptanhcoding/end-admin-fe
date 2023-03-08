@@ -30,7 +30,6 @@ export default function ProductCard({ data }: Props) {
         <ImageC
           className={cx("object-contain hover:scale-125 ease-in duration-300 w-full")}
           src={`${process.env.NEXT_PUBLIC_API_URL}/${data.coverImgUrl}`}
-          // src={data.coverImageUrl}
         />
         <p
           className={cx(
