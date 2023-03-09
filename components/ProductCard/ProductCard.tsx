@@ -5,18 +5,10 @@ import classNames from "classnames/bind";
 import styles from "./ProductCard.module.scss";
 import { ImFire } from "react-icons/im";
 import money from "../../library/formatMoney";
+import { productCart } from "../../configs/product";
 
 interface Props {
-  data: {
-    _id: string;
-    name: string;
-    code: string;
-    price: number;
-    discount: number;
-    priceDiscount: number;
-    slug: string;
-    coverImgUrl: string;
-  };
+  data: productCart;
 }
 
 const cx = classNames.bind(styles);

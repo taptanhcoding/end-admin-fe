@@ -115,6 +115,7 @@ a {
   width: 1200px;
   max-width: 100%;
   margin: 0 auto;
+  background: #f6f6f6
 }
 
 @media screen and (max-width: 1180px) {

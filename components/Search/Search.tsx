@@ -7,9 +7,12 @@ import styles from "./Search.module.scss";
 import classNames from "classnames/bind";
 import ProductIteam from "../ProductIteam";
 import axiosClient from "../../library/axiosClient";
+import { useRouter } from 'next/router'
+
 
 const cx = classNames.bind(styles);
 export default function Search({ ...props }) {
+  const router = useRouter()
   const [searchValue, setSearchValue] = useState<string>("");
   const [searchRs,setSearchRs] = useState([])
   const [isShowRs,setShowRs] = useState<boolean>(false)
@@ -36,6 +39,13 @@ export default function Search({ ...props }) {
       console.log("Lỗi tìm kiếm : ",error);
     }
   }
+
+  function navigateSearch() {
+    if(searchValue) {
+      router.push(`/search/tim-kiem?key=${searchValue}`)
+    }
+  }
+
   return (
     <Tippy
       interactive={true}
@@ -64,6 +74,11 @@ export default function Search({ ...props }) {
         <DebounceInput
           minLength={2}
           debounceTimeout={300}
+          onKeyDown={(e) => {
+            if(e.key == 'Enter') {
+            navigateSearch()
+            setShowRs(false)
+          } }}
           onChange={(e) =>{
              setSearchValue(e.target.value)
               handleSearch(e.target.value)
@@ -77,7 +92,10 @@ export default function Search({ ...props }) {
           placeholder='Tìm kiếm sản phẩm trên smart device ?'
         />
         <button>
-          <HiOutlineSearch style={{
+          <HiOutlineSearch onClick={() => {
+            navigateSearch()
+            setShowRs(false)
+          }} style={{
             fontSize: '1.8rem'
           }}/>
         </button>

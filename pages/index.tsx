@@ -30,7 +30,6 @@ interface propsData {
 
 const cx = classNames.bind(styles);
 function Home({ data }: propsData) {
-  console.log(data);
   const settings = {
     dots: false,
     infinite: true,
@@ -68,9 +67,7 @@ function Home({ data }: propsData) {
     <>
       <Head>
         <title>Phụ kiện điện thoại, máy tính bảng - Smart Device</title>
-        <meta name="description" content="Phụ kiện thông minh" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        
       </Head>
       <main className={cx("container mt-[15px!important]")}>
         <div className={cx("content-top")}></div>
