@@ -16,6 +16,7 @@ export default function ImageC({ ...props }) {
     <Image 
       onError={() => {
         setLinkImg("");
+        // em co chinh co nay
       }}
       width={100}
       height={100}

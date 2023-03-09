@@ -18,6 +18,7 @@ export default function ProductItem({data}:Props) {
   return (
     <Link href={`/san-pham/${data.slug}`} className={cx('wrapper','flex flex-row w-full hover:bg-low-gray p-2  hover:border border-low-gray ')}>
         <div className={cx('wrap-img', 'bg-white mx-4')}><ImageC className={cx('object-contain')} src={data.coverImageUrl}/></div>
+        {/* em co chinh o src ImageC */}
         <div className={cx('product-text flex-1')}>
             <p className={cx('product-text_name text-13')}>{data.name}</p>
             <p className={cx('product-text_price text-13 text-main')}>{money(data.price)}</p>
