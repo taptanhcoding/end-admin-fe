@@ -11,6 +11,7 @@ import ProductCard from "../components/ProductCard";
 import axiosClient from "../library/axiosClient";
 import Slider from "react-slick";
 import { GetServerSideProps } from "next";
+import Menu from "../components/NavMenu/NavMenu";
 
 interface propsData {
   data: Array<{
@@ -70,7 +71,17 @@ function Home({ data }: propsData) {
         
       </Head>
       <main className={cx("container mt-[15px!important]")}>
-        <div className={cx("content-top")}></div>
+        <div className={cx("content-top")}>
+          <div className={cx('content-top_nav')}>
+                  <Menu type="1"/>
+          </div>
+          <div className={cx('content-top_slide-main')}>
+
+          </div>
+          <div className={cx('content-top_slide-right')}>
+
+          </div>
+        </div>
         <div className={cx("content-center")}>
           <div className={cx("products-slide")}>
             {data.map((vl, index) => (

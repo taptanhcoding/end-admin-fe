@@ -16,30 +16,33 @@ interface MenuProps {
 interface PropsItem {
   name: string;
   slug: string;
+  description: string;
   coverImgUrl: string;
 }
 
 const cx = classNames.bind(styles);
-function NavItem({ name, slug, coverImgUrl }: PropsItem) {
+function NavItem({ name, slug, coverImgUrl,description }: PropsItem) {
   return (
-    <Link href={slug} className={cx('wrap-nav')}>
-      <div
-        className={cx(
-          "flex text-[15px] bg-low-gray w-[212px] p-[7px] hover:bg-main hover:text-white "
-        )}
-      >
-        <span style={{ marginRight: "20px" }}>
-          <ImageC src={`${process.env.NEXT_PUBLIC_API_URL}/${coverImgUrl}`} width='20' height='20'/>
-        </span>
-        <span>{name}</span>
-        <br />
-      </div>
+    <Link
+      href={`/danh-sach/${slug}?name=${name}&description=${description}`}
+      className={cx(
+        "wrap-nav",
+        "flex text-[15px] bg-white w-full p-[7px] hover:bg-main hover:text-white "
+      )}
+    >
+      <span style={{ marginRight: "20px" }}>
+        <ImageC
+          src={`${process.env.NEXT_PUBLIC_API_URL}/${coverImgUrl}`}
+          width="20"
+          height="20"
+        />
+      </span>
+      <span>{name}</span>
     </Link>
   );
 }
 
 export default function Menu({ type }: MenuProps) {
-
   const [categories, setCategory] = useState<Array<PropsItem>>([]);
 
   useEffect(() => {
@@ -54,12 +57,13 @@ export default function Menu({ type }: MenuProps) {
   switch (type) {
     case "1":
       return (
-        <div className={styles.dropdowncontent1}>
+        <div className={cx("bg-white w-[226px]")}>
           {categories?.map((item, i) => (
             <NavItem
               key={i}
               name={item.name}
               slug={item.slug}
+              description={item.description}
               coverImgUrl={item.coverImgUrl}
             />
           ))}
@@ -69,16 +73,21 @@ export default function Menu({ type }: MenuProps) {
     case "2":
       return (
         <>
-          <button className={styles.dropdown}>
+          <button className={cx("dropdown", "relative")}>
             DANH SÁCH SẢN PHẨM
-            {categories?.map((item, i) => (
-              <NavItem
-                key={i}
-                name={item.name}
-                slug={item.slug}
-                coverImgUrl={item.coverImgUrl}
-              />
-            ))}
+            <div
+              className={cx("dropdowncontent2", "absolute bg-white w-[226px]")}
+            >
+              {categories?.map((item, i) => (
+                <NavItem
+                  description={item.description}
+                  key={i}
+                  name={item.name}
+                  slug={item.slug}
+                  coverImgUrl={item.coverImgUrl}
+                />
+              ))}
+            </div>
           </button>
         </>
       );
