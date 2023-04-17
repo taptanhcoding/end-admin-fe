@@ -1,10 +1,8 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import { useRouter } from "next/router";
-import GlobalLayout from "../../components/layouts/GlobalLayout";
 import axiosClient from "../../library/axiosClient";
 import { productCart } from "../../configs/product";
-import Menu from "../../components/NavMenu/NavMenu";
 import PageProductContent from "../../components/PageProductContent/PageProductContent";
 
 interface Props {
@@ -33,6 +31,3 @@ export default function Products() {
   );
 }
 
-Products.getLayout = function getLayout(page: ReactElement) {
-  return <GlobalLayout>{page}</GlobalLayout>;
-};

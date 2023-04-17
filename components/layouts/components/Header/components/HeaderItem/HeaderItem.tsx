@@ -6,9 +6,10 @@ import styles from "./HeaderItem.module.scss";
 interface Props {
   icon: JSX.Element;
   content: JSX.Element | string;
-  quanity: number | null | undefined;
+  quanity?: number | null | undefined;
   type: string;
   link: string;
+  onClick?: any;
 }
 const cx = classNames.bind(styles);
 function WrapTag({
@@ -42,6 +43,7 @@ export default function HeaderItem({
   quanity,
   type,
   link = "",
+  onClick,
 }: Props) {
   return (
     <WrapTag
@@ -52,11 +54,12 @@ export default function HeaderItem({
       )}
     >
       <div
+        onClick={onClick}
         className={cx(
           "lg:text-[20px] w-[36px] h-[36px] rounded-[12px] text-main bg-white p-[5px] sm:rounded-[24px]  md:text-[17px] md:text-main p-[8px] relative"
         )}
       >
-        {icon}
+        <div className="text-[2rem]">{icon}</div>
         {quanity !== null && (
           <p
             className={cx(
@@ -69,7 +72,7 @@ export default function HeaderItem({
       </div>
       <div
         className={cx(
-          "text-white md:text-[15px] md:hidden lg:block ml-[7px] mt-[3px]"
+          "text-white sp:text-[15px] hidden sp:block ml-[7px] mt-[3px]"
         )}
       >
         {content}

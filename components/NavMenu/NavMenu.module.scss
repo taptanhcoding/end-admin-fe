@@ -2,14 +2,21 @@
   filter: invert(1);
 }
 
+.wrap-nav {
+  border-bottom: 1px solid #ccc;
+  &:last-child {
+    border: none;
+  }
+}
+
 
 .dropdown {
     font-size: 15px ;
     text-align: center;
-    background-color: #ff0000;
+    // background-color: #ff0000;
     width:212px;
     padding: 10px 0px 0px 0px; 
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 0px 0px;
     color:white;
     display: block;
     z-index: 1;

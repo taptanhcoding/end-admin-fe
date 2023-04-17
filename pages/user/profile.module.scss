@@ -1,0 +1,25 @@
+.pr-tab {
+    cursor: pointer;
+    text-align: right;
+    padding: 5px;
+    background-color: white;
+    &:hover {
+        background-color: #ccc;
+    }
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    padding: 0 4px;
+    & label {
+        text-transform: capitalize;
+        padding: 4px 0;
+    }
+    & input {
+        border-radius: 4px;
+        padding: 5px 3px;
+        
+    }
+}

@@ -11,14 +11,14 @@ export default function Footer() {
   return (
     <div className={cx("container ")}>
       <div className={cx("bg-main rounded-2xl p-16 text-white")}>
-        <div className={cx("footer-top", "flex  sm:flex-col md:flex-row")}>
+        <div className={cx("footer-top", "flex  flex-col md:flex-row")}>
           <div
             className={cx(
               "footer-top_menu",
-              " flex  sm:flex-col md:flex-row sm:w-full md:w-2/4"
+              " flex  sm:flex-col md:flex-row w-full md:w-2/4"
             )}
           >
-            <div className={cx("menu-item", "sm:w-full sm:mb-4 md:w-2/4 ")}>
+            <div className={cx("menu-item", "w-full sm:mb-4 md:w-2/4 ")}>
               <p className={cx("text-[17px] font-bold mb-6")}>SMARTDEVICE</p>
               <ul className={cx("text-14")}>
                 {[
@@ -39,7 +39,7 @@ export default function Footer() {
                 )}
               </ul>
             </div>
-            <div className={cx("menu-item", "sm:w-full sm:mb-4 md:w-2/4 ")}>
+            <div className={cx("menu-item", "w-full sm:mb-4 md:w-2/4 ")}>
               <p className={cx("text-[17px] font-bold mb-6")}>
                 HỖ TRỢ KHÁCH HÀNG
               </p>
@@ -71,7 +71,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className={cx("footer-top_address", " sm:w-full md:w-2/4")}>
+          <div className={cx("footer-top_address", " w-full md:w-2/4")}>
             <p className={cx("text-[17px] font-bold mb-6")}>
               HỆ THỐNG CỦA HÀNG
             </p>

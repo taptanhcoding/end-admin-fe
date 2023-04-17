@@ -6,7 +6,6 @@ import classNames from 'classnames/bind'
 import styles from './search.module.scss'
 import Head from 'next/head'
 import ProductCard from '../../components/ProductCard'
-import GlobalLayout from '../../components/layouts/GlobalLayout'
 
 const cx = classNames.bind(styles)
 export default function Search() {
@@ -42,6 +41,4 @@ export default function Search() {
   )
 }
 
-Search.getLayout = function getLayout(page : ReactElement) {
-  return <GlobalLayout>{page}</GlobalLayout>
-}
+

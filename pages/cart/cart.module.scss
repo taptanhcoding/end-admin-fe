@@ -1,0 +1,36 @@
+table {
+    .head-tb {
+        text-transform: uppercase;
+    }
+}
+
+.td{
+    text-align: center;
+    padding: 6px;
+}
+
+.form-item {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 5px;
+    & label , & input {
+        padding: 5px;
+    }
+
+    & label {
+        width: fit-content;
+        min-width: 165px;
+        white-space: nowrap;
+    }
+    // & input {
+    //     flex:1;
+    //     width: 30px;
+    // }
+    & input:not([type = 'radio']) {
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+}

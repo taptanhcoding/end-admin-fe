@@ -1,59 +1,69 @@
-import axios from 'axios'
-
-console.log(process.env.NEXT_PUBLIC_API_URL);
+import axios from "axios";
 
 const axiosClient = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL,
-})
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+});
 
 // axiosClient.interceptors.request.use(async (config) => {
-//     // config.headers['Content-Type'] = 'multipart/form-data';
-//     const token = window.localStorage.getItem("tokenUser");
-//     if (token) {
-//       config.headers["Authorization"] =
-//         "Bearer " + window.localStorage.getItem("tokenUser");
-//     }
-//     return config;
-//   });
-  
-  axiosClient.interceptors.response.use(
-    async (res) => {
-      const { tokenCustomer, refreshTokenCusTomer } = res.data;
-  
-      if (tokenCustomer) {
-        window.localStorage.setItem("tokenUser", tokenCustomer);
-      }
-      if (refreshTokenCusTomer) {
-        window.localStorage.setItem("refreshTokenUser", refreshTokenCusTomer);
-      }
-  
-      return res.data;
-    },
-    // async (error) => {
-    //   if (error.response.status === 401) {
-    //     const refreshTokenUser = window.localStorage.getItem("refreshTokenUser");
-    //     if (refreshTokenUser) {
-    //       await axiosClient
-    //         .post("/admin/refresh-token", {
-    //           refreshToken: window.localStorage.getItem("refreshTokenUser"),
-    //         })
-    //         .then((response) => {
-    //           window.localStorage.setItem("token", response.data.token);
-    //           window.localStorage.setItem(
-    //             "refreshTokenUser",
-    //             response.data.refreshTokenCustomer
-    //           );
-    //         })
-    //         .catch((err) => {
-    //           return Promise.reject(err);
-    //         });
-    //       return axios(error.config);
-    //     }
-    //     return Promise.reject(error);
-    //   }
-    //   return Promise.reject(error);
-    // }
-  );
+//   // config.headers['Content-Type'] = 'multipart/form-data';
+//   // const token = localStorage.getItem('token')
+//   // if (token) {
+//   //   config.headers["Authorization"] =
+//   //     "Bearer " +token
+//   // }
+//   const token = localStorage.getItem("token");
+//   console.log(token);
 
+//   return config;
+// });
 
-export default axiosClient
+axiosClient.interceptors.request.use((config) => {
+  if (typeof window !== "undefined") {
+    // Perform localStorage action
+    const token = localStorage.getItem("token");
+    if(token) config.headers["Authorization"] = "Bearer " + token;
+  }
+
+  return config;
+});
+
+axiosClient.interceptors.response.use(
+  async (res) => {
+    const { token, refreshToken } = res.data;
+
+    if (!!token) {
+      localStorage.setItem("tokenUser", token);
+    }
+    if (!!refreshToken) {
+      localStorage.setItem("refreshToken", refreshToken);
+    }
+
+    return res.data;
+  },
+  async (error) => {
+    if (error.response.status === 401) {
+      const refreshToken = localStorage.getItem("refreshToken");
+      if (refreshToken) {
+        await axiosClient
+          .post("/api/customer/refresh-token", {
+            refreshToken
+          })
+          .then((response) => {
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem(
+              "refreshToken",
+              response.data.refreshToken
+            );
+          })
+          .catch((err) => {
+            return Promise.reject(err);
+          });
+        return axios(error.config);
+      }
+      return Promise.reject(error);
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default axiosClient;

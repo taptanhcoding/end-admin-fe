@@ -1,0 +1,12 @@
+.bread-item {
+    font-size: 1.4rem;
+    &::after {
+        content: ">";
+        display: inline-flex;
+        padding: 0 4px;
+    }
+
+    &:last-child::after {
+        display: none;
+    }
+}
